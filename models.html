@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMW Showroom — Car Models</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top, #001428, #000);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    header {
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(10px);
+      padding: 16px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+    }
+    header img { height: 36px; }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 12px;
+      transition: 0.3s;
+      opacity: 0.9;
+    }
+    nav a:hover { color: #00b4ff; opacity: 1; }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 60px 5% 30px;
+    }
+    .hero h1 {
+      font-size: 40px;
+      font-weight: 700;
+      background: linear-gradient(90deg, #00b4ff, #0078d7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 18px;
+      opacity: 0.85;
+    }
+
+    /* Models Grid */
+    .models-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      padding: 50px 5%;
+    }
+
+    .model-card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.4);
+      transition: 0.4s ease;
+      position: relative;
+    }
+    .model-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(145deg, rgba(0,180,255,0.25), transparent 70%);
+      opacity: 0;
+      transition: 0.5s;
+    }
+    .model-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0,180,255,0.4);
+    }
+    .model-card:hover::before { opacity: 1; }
+
+    .model-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .model-info {
+      padding: 22px;
+      position: relative;
+    }
+    .model-info h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+      color: #00b4ff;
+    }
+    .model-info p {
+      font-size: 15px;
+      opacity: 0.9;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+    .model-info .price {
+      font-size: 18px;
+      font-weight: 600;
+      color: #00e0ff;
+      margin-bottom: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #0078d7, #00b4ff);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 16px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      box-shadow: 0 0 15px #00b4ff;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      background: #000;
+      text-align: center;
+      padding: 18px;
+      font-size: 13px;
+      opacity: 0.7;
+      margin-top: auto;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 30px; }
+      .hero p { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/BMW.svg" alt="BMW Logo">
+      <span>BMW Showroom</span>
+    </div>
+    <nav>
+       <a href="Index.html">HOME</a>
+      <a href="Models.html">MODELS</a>
+      <a href="Booking.html">BOOKING</a>
+      <a href="Offers.html">OFFERS</a>
+      <a href="Contact.html" style="font-weight:600;">CONTACT</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Discover the BMW Lineup 2025</h1>
+    <p>Experience innovation, performance, and design — crafted to move you forward.</p>
+  </section>
+
+  <!-- Models Grid -->
+  <section class="models-grid">
+
+    <div class="model-card">
+      <img src="https://tse1.mm.bing.net/th/id/OIP.7o0vVqYZ_2yuF7MT90zh6gHaFz?pid=Api&P=0&h=180" alt="BMW M4">
+      <div class="model-info">
+        <h3>BMW M4 Competition</h3>
+        <p>3.0L Twin-Turbo Inline-6 · 510 HP · 0–100 km/h in 3.9s</p>
+        <div class="price">₹1.37 Cr Onwards</div>
+        <a href="booking.html" class="btn">Book Now</a>
+      </div>
+    </div>
+
+    <div class="model-card">
+      <img src="https://tse1.mm.bing.net/th/id/OIP.BUxBiHhOcZ9lejXABaNxMgHaEV?pid=Api&P=0&h=180" alt="BMW X5">
+      <div class="model-info">
+        <h3>BMW X5 xDrive40i</h3>
+        <p>3.0L Turbocharged Inline-6 · 381 HP · All-Wheel Drive SUV</p>
+        <div class="price">₹96 Lakh Onwards</div>
+        <a href="booking.html" class="btn">Book Now</a>
+      </div>
+    </div>
+
+    <div class="model-card">
+      <img src="https://tse2.mm.bing.net/th/id/OIF.PJBfe5RxurRAlh4w7yzJwQ?pid=Api&P=0&h=180" alt="BMW i7">
+      <div class="model-info">
+        <h3>BMW i7 Electric</h3>
+        <p>All-Electric Luxury Sedan · 536 HP · Range up to 625 km</p>
+        <div class="price">₹1.95 Cr Onwards</div>
+        <a href="booking.html" class="btn">Book Now</a>
+      </div>
+    </div>
+
+    <div class="model-card">
+      <img src="https://tse4.mm.bing.net/th/id/OIF.knYBgru0X7Kbv4dAEWLoDA?pid=Api&P=0&h=180" alt="BMW X3">
+      <div class="model-info">
+        <h3>BMW X3 SportX Plus</h3>
+        <p>2.0L Turbo Petrol · 252 HP · Premium Comfort SUV</p>
+        <div class="price">₹68.5 Lakh Onwards</div>
+        <a href="booking.html" class="btn">Book Now</a>
+      </div>
+    </div>
+
+  </section>
+
+  <footer>
+    Designed and Developed by MOHAMMED RAYAN
+  </footer>
+
+</body>
+</html>

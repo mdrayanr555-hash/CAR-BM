@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMW Showroom — Exclusive Offers</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:'Poppins',sans-serif;
+      background:linear-gradient(135deg,#010a18,#002b55);
+      color:#fff;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+    }
+    header{
+      background:rgba(0,0,0,0.5);
+      backdrop-filter:blur(8px);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 5%;
+      position:sticky;
+      top:0;
+      z-index:10;
+    }
+    header .logo{display:flex;align-items:center;gap:10px;font-weight:700;}
+    header img{height:36px;}
+    nav a{color:#fff;text-decoration:none;margin:0 12px;opacity:0.9;}
+    nav a:hover{opacity:1;}
+
+    .hero{
+      text-align:center;
+      padding:70px 4% 40px;
+    }
+    .hero h1{
+      font-size:38px;
+      font-weight:700;
+      background:linear-gradient(90deg,#4da3ff,#00e0ff);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      margin-bottom:12px;
+    }
+    .hero p{
+      font-size:18px;
+      opacity:0.9;
+    }
+
+    .offers-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:25px;
+      padding:40px 5%;
+    }
+
+    .offer-card{
+      background:rgba(255,255,255,0.1);
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 5px 20px rgba(0,0,0,0.3);
+      transition:transform 0.4s,box-shadow 0.4s;
+      cursor:pointer;
+    }
+    .offer-card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 8px 25px rgba(0,0,0,0.4);
+    }
+    .offer-card img{
+      width:100%;
+      height:180px;
+      object-fit:cover;
+    }
+    .offer-content{
+      padding:20px;
+    }
+    .offer-content h3{
+      font-size:22px;
+      margin-bottom:8px;
+    }
+    .offer-content p{
+      font-size:15px;
+      opacity:0.85;
+      margin-bottom:15px;
+    }
+    .offer-content .price{
+      font-size:18px;
+      font-weight:600;
+      color:#00e0ff;
+      margin-bottom:10px;
+    }
+    .btn-group{
+      display:flex;
+      justify-content:space-between;
+    }
+    .btn{
+      background:#0078d7;
+      border:none;
+      color:#fff;
+      padding:10px 16px;
+      border-radius:8px;
+      cursor:pointer;
+      transition:0.3s;
+      text-decoration:none;
+      text-align:center;
+      flex:1;
+      margin:0 4px;
+    }
+    .btn:hover{background:#005fad;}
+
+    footer{
+      text-align:center;
+      padding:16px;
+      background:#000;
+      font-size:13px;
+      opacity:0.7;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/BMW.svg" alt="BMW">
+      <span>BMW Showroom</span>
+    </div>
+    <nav>
+       <a href="Index.html">HOME</a>
+      <a href="Models.html">MODELS</a>
+      <a href="Booking.html">BOOKING</a>
+      <a href="Offers.html">OFFERS</a>
+      <a href="Contact.html" style="font-weight:600;">CONTACT</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Exclusive BMW Offers 2025</h1>
+    <p>Drive your dream BMW at unbeatable prices. Limited-time deals available only this season!</p>
+  </section>
+
+  <section class="offers-container">
+    <div class="offer-card">
+      <img src="http://www.autotribute.com/wp-content/gallery/bmw-i8-plug-in-hybrid-sports-car/bmw-i8-supercar-race-track.jpg" alt="BMW M4">
+      <div class="offer-content">
+        <h3>BMW I8 Competition</h3>
+        <p>Save up to ₹5,00,000 and enjoy free maintenance for 2 years.</p>
+        <div class="price">₹1.37 Cr Onwards</div>
+        <div class="btn-group">
+          <a href="booking.html" class="btn">Book Now</a>
+          <a href="models.html" class="btn">Learn More</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="offer-card">
+      <img src="https://images.hindustantimes.com/img/2023/01/29/1600x900/2023_bmw_x1_1674986616847_1674986617091_1674986617091.jpg" alt="BMW X5">
+      <div class="offer-content">
+        <h3>BMW X1 xDrive40i</h3>
+        <p>Avail zero down payment and easy EMI options this festive season.</p>
+        <div class="price">₹96.0 Lakh Onwards</div>
+        <div class="btn-group">
+          <a href="booking.html" class="btn">Book Now</a>
+          <a href="models.html" class="btn">Learn More</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="offer-card">
+      <img src="https://vehicle-images.dealerinspire.com/cde9-18003201/WBABC4C02PCL89801/78b80fb52221ecb89ce2d1fad54b3437.jpg" alt="BMW i7">
+      <div class="offer-content">
+        <h3>BMW 8 Series</h3>
+        <p>₹2,00,000 cashback + Free home charging station for early buyers.</p>
+        <div class="price">₹1.95 Cr Onwards</div>
+        <div class="btn-group">
+          <a href="booking.html" class="btn">Book Now</a>
+          <a href="models.html" class="btn">Learn More</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="offer-card">
+      <img src="https://wallpapercave.com/wp/wp4412675.jpg" alt="BMW X3">
+      <div class="offer-content">
+        <h3>BMW m850i</h3>
+        <p>₹1,00,000 instant discount and free insurance for the first year.</p>
+        <div class="price">₹68.5 Lakh Onwards</div>
+        <div class="btn-group">
+          <a href="booking.html" class="btn">Book Now</a>
+          <a href="models.html" class="btn">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Designed and Developed by MOHAMMED RAYAN
+  </footer>
+
+</body>
+</html>

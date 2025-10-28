@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BMW Showroom — Demo</title>
+  <style>
+    /* BASIC RESET */
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;line-height:1.4;color:#111;background:#f7f7f9}
+    a{color:inherit;text-decoration:none}
+
+    /* NAV */n    header{background:#0b1220;color:#fff;padding:18px 4%;position:sticky;top:0;z-index:40;box-shadow:0 2px 8px rgba(3,7,18,.15)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:700}
+    .logo img{height:34px}
+    nav ul{display:flex;gap:18px;list-style:none}
+    nav a{opacity:.9}
+    .btn-primary{background:#0a4b8d;color:#fff;padding:10px 14px;border-radius:8px;font-weight:600}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr 460px;gap:32px;padding:56px 4%;align-items:center}
+    .hero h1{font-size:36px;margin-bottom:12px}
+    .hero p{color:#374151;margin-bottom:18px}
+    .hero .cta-row{display:flex;gap:12px}
+    .hero .mockup{border-radius:14px;overflow:hidden;background:#000;height:380px;display:flex;align-items:center;justify-content:center;color:#fff}
+
+    /* CAR GRID */
+    .container{padding:36px 4%}
+    .section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+    .card{background:#fff;border-radius:12px;padding:14px;box-shadow:0 6px 18px rgba(12,20,30,.06);display:flex;flex-direction:column;gap:10px}
+    .card img{width:100%;height:140px;object-fit:cover;border-radius:8px}
+    .card h3{font-size:18px}
+    .price{color:#0a4b8d;font-weight:700}
+    .card .actions{display:flex;gap:8px;margin-top:auto}
+    .btn-secondary{border:1px solid #d1d5db;padding:8px 10px;border-radius:8px}
+
+    /* CONTACT */
+    footer{background:#fff;margin-top:36px;padding:28px 4%;border-top:1px solid #eef2f7}
+    .contact-grid{display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start}
+    form{display:flex;flex-direction:column;gap:10px}
+    input,textarea,select{padding:10px;border-radius:8px;border:1px solid #e6e9ee}
+
+    /* MODAL */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(7,9,14,.45);display:none;align-items:center;justify-content:center;padding:28px}
+    .modal{background:#fff;border-radius:10px;max-width:920px;width:100%;overflow:hidden;display:grid;grid-template-columns:1fr 320px}
+    .modal .gallery{padding:18px}
+    .modal .info{padding:18px;border-left:1px solid #f2f4f7}
+    .close{background:transparent;border:0;font-size:18px}
+
+    /* responsive */
+    @media (max-width:900px){.hero{grid-template-columns:1fr;}.contact-grid{grid-template-columns:1fr}.modal{grid-template-columns:1fr}.hero .mockup{height:260px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/BMW.svg" alt="BMW"/>
+        <div>BMW Showroom</div>
+      </div>
+      <nav>
+        <ul>
+          <a href="Index.html">HOME</a>
+      <a href="Models.html">MODELS</a>
+      <a href="Booking.html">BOOKING</a>
+      <a href="Offers.html">OFFERS</a>
+      <a href="Contact.html" style="font-weight:600;">CONTACT</a>
+        </ul>
+      </nav>
+      <div>
+        <a class="btn-primary" href="#booking">Book Test Drive</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <h1>Experience the future of driving — BMW Collection</h1>
+        <p>Browse our curated selection of BMW models, compare trims, schedule a test drive, or contact our showroom for a personalised quote.</p>
+        <div class="cta-row">
+          <a class="btn-primary" href="#models">Browse Models</a>
+          <a class="btn-secondary" href="#contact">Contact Sales</a>
+        </div>
+
+        <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
+          <div style="background:#fff;padding:10px;border-radius:8px;box-shadow:0 6px 12px rgba(12,20,30,.06)">
+            <strong>Opening Hours</strong><div style="font-size:13px;color:#555">Mon–Sat: 9:00 — 19:00</div>
+          </div>
+          <div style="background:#fff;padding:10px;border-radius:8px;box-shadow:0 6px 12px rgba(12,20,30,.06)">
+            <strong>Location</strong><div style="font-size:13px;color:#555">MG Road, Chennai</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mockup">
+        <div>
+          <h3 style="margin-bottom:8px">Featured — BMW M4</h3>
+          <p style="max-width:300px;color:#d1d5db;font-size:14px">High performance, track-ready handling, and premium comfort.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="models" class="container">
+      <div class="section-title">
+        <h2>Popular Models</h2>
+        <div style="color:#6b7280">5 models available</div>
+      </div>
+
+      <div class="grid" id="modelsGrid">
+        <!-- Cards inserted by JS -->
+      </div>
+    </section>
+
+    <section id="offers" class="container">
+      <div class="section-title">
+        <h2>Current Offers</h2>
+        <div></div>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <div style="background:#fff;padding:14px;border-radius:10px;box-shadow:0 6px 18px rgba(12,20,30,.06);min-width:220px">0% finance on select models</div>
+        <div style="background:#fff;padding:14px;border-radius:10px;box-shadow:0 6px 18px rgba(12,20,30,.06);min-width:220px">Exchange bonus up to ₹2,00,000</div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="contact">
+    <div class="contact-grid">
+      <div>
+        <h3>Contact the Showroom</h3>
+        <p>Call: <a href="tel:+919900112233">+91 99 0011 2233</a><br>Email: <a href="mailto:sales@bmwshowroom.example">sales@bmwshowroom.example</a></p>
+
+        <h4 style="margin-top:14px">Visit Us</h4>
+        <p style="color:#6b7280">MG Road, Chennai — We accept walk-ins and appointments.</p>
+      </div>
+
+      <div>
+        <form id="contactForm">
+          <input type="text" id="name" placeholder="Your name" required />
+          <input type="email" id="email" placeholder="Your email" required />
+          <input type="tel" id="phone" placeholder="Phone" />
+          <select id="interest">
+            <option value="general">I'm interested in...</option>
+            <option value="m4">BMW M4</option>
+            <option value="x5">BMW X5</option>
+            <option value="i7">BMW i7</option>
+          </select>
+          <textarea id="message" rows="4" placeholder="Message (optional)"></textarea>
+          <button class="btn-primary" type="submit">Send enquiry</button>
+        </form>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL / DETAIL -->
+  <div id="modalBackdrop" class="modal-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true">
+      <div class="gallery">
+        <button class="close" id="closeModal">✕</button>
+        <div id="modalImages" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px"></div>
+      </div>
+      <div class="info">
+        <h3 id="modalTitle">Model Title</h3>
+        <p id="modalDesc" style="color:#555;margin-top:6px">Description</p>
+        <div style="margin-top:12px">
+          <div class="price" id="modalPrice">₹ --</div>
+          <div style="margin-top:8px">Availability: <span id="modalAvail">In stock</span></div>
+        </div>
+        <div style="margin-top:12px;display:flex;gap:8px">
+          <button class="btn-primary" id="bookBtn">Book Test Drive</button>
+          <button class="btn-secondary" id="enquireBtn">Enquire</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Demo data - replace with server data or CMS
+    const MODELS = [
+      {id:'m4',name:'BMW M4',price:'1,45,00,000',img:'https://media.ed.edmunds-media.com/bmw/m4-csl/2023/oem/2023_bmw_m4-csl_coupe_base_fq_oem_1_1600.jpg',desc:'High performance coupe with track-focused dynamics.',available:true,images:[]},
+      {id:'x5',name:'BMW X5',price:'89,50,000',img:'https://tse1.mm.bing.net/th/id/OIP.6egIOzVMvnaP5EbL4VUSNAHaFj?rs=1&pid=ImgDetMain&o=7&rm=3',desc:'Luxury SUV with space and comfort for the family.',available:true,images:[]},
+      {id:'i7',name:'BMW i7',price:'1,75,00,000',img:'https://platform.cstatic-images.com/in/v2/stock_photos/3d76cb38-a0ef-4331-986c-9bfedf022850/8830aab4-f5c9-4fd7-b03f-e5f9d21fa381.png',desc:'All-electric flagship sedan with advanced tech.',available:false,images:[]},
+      {id:'m2',name:'BMW M2',price:'84,00,000',img:'https://cdn.motor1.com/images/mgl/W8GKw6/s1/bmw-m2-manhart-mh2-700.jpg',desc:'Compact performance — agile and fun.',available:true,images:[]},
+      {id:'x3',name:'BMW X3',price:'63,00,000',img:'https://th.bing.com/th/id/OIP.X9ZxD-oZbh-ptAwQRsjg6wHaEK?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3',desc:'Popular premium compact SUV.',available:true,images:[]}
+    ];
+
+    const grid = document.getElementById('modelsGrid');
+    MODELS.forEach(m => {
+      const card = document.createElement('div');card.className='card';
+      card.innerHTML = `
+        <img src="${m.img}" alt="${m.name}" />
+        <h3>${m.name}</h3>
+        <div>${m.desc}</div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px">
+          <div class="price">₹ ${m.price}</div>
+          <div style="font-size:13px;color:${m.available? '#10b981':'#ef4444'}">${m.available? 'In stock':'Coming soon'}</div>
+        </div>
+        <div class="actions">
+          <button class="btn-secondary" data-id="${m.id}" data-action="view">View</button>
+          <button class="btn-primary" data-id="${m.id}" data-action="book">Book</button>
+        </div>`;
+      grid.appendChild(card);
+    });
+
+    // Modal logic
+    const backdrop = document.getElementById('modalBackdrop');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalPrice = document.getElementById('modalPrice');
+    const modalAvail = document.getElementById('modalAvail');
+    const modalImages = document.getElementById('modalImages');
+
+    document.addEventListener('click', e=>{
+      const btn = e.target.closest('button');
+      if(!btn) return;
+      const action = btn.dataset.action;
+      const id = btn.dataset.id;
+      if(action==='view') openModal(id);
+      if(btn.id==='closeModal') closeModal();
+      if(btn.id==='bookBtn' || action==='book'){
+        closeModal();
+        document.querySelector('#contact').scrollIntoView({behavior:'smooth'});
+        document.getElementById('interest').value = id || '';
+      }
+    });
+
+    function openModal(id){
+      const model = MODELS.find(m=>m.id===id);
+      if(!model) return;
+      modalTitle.textContent = model.name;
+      modalDesc.textContent = model.desc;
+      modalPrice.textContent = '₹ ' + model.price;
+      modalAvail.textContent = model.available? 'In stock':'Coming soon';
+      modalImages.innerHTML = `<img src="${model.img}" style="width:100%;height:220px;object-fit:cover;border-radius:8px" />`;
+      backdrop.style.display = 'flex';
+      backdrop.setAttribute('aria-hidden','false');
+    }
+    function closeModal(){backdrop.style.display='none';backdrop.setAttribute('aria-hidden','true')}
+
+    // Contact form demo handler
+    document.getElementById('contactForm').addEventListener('submit', function(ev){
+      ev.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      if(!name||!email){alert('Please include name and email');return}
+      alert('Thanks '+name+'. We received your enquiry — our sales team will contact you.');
+      this.reset();
+    });
+
+    // Small accessibility: close modal with Escape
+    window.addEventListener('keydown', (e)=>{if(e.key==='Escape') closeModal()});
+  </script>
+
+  <footer>
+    Designed and Developed by MOHAMMED RAYAN
+  </footer>
+  
+</body>
+</html>

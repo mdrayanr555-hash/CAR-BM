@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMW Showroom — Book Test Drive</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:'Poppins',sans-serif;
+      background:linear-gradient(135deg,#001428,#0a4b8d);
+      color:#fff;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+    header{
+      position:absolute;
+      top:0;left:0;width:100%;
+      padding:20px 5%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:rgba(0,0,0,0.4);
+      backdrop-filter:blur(8px);
+    }
+    header .logo{display:flex;align-items:center;gap:10px;font-weight:700;}
+    header img{height:36px;}
+    nav a{color:#fff;text-decoration:none;margin:0 12px;opacity:0.9;}
+    nav a:hover{opacity:1;}
+
+    .booking-container{
+      background:rgba(255,255,255,0.1);
+      padding:40px;
+      border-radius:20px;
+      max-width:550px;
+      width:100%;
+      backdrop-filter:blur(12px);
+      box-shadow:0 8px 30px rgba(0,0,0,0.3);
+      animation:fadeIn 0.8s ease-in-out;
+    }
+
+    h2{text-align:center;margin-bottom:20px;font-size:28px;}
+    form{display:flex;flex-direction:column;gap:14px;}
+    input,select,textarea{
+      padding:12px 14px;
+      border:none;
+      border-radius:10px;
+      font-size:15px;
+      outline:none;
+    }
+    textarea{resize:none;}
+    button{
+      background:#0078d7;
+      color:#fff;
+      border:none;
+      padding:12px;
+      border-radius:10px;
+      font-size:16px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+    button:hover{background:#005fad;}
+
+    .success-message{
+      display:none;
+      background:rgba(0,255,140,0.15);
+      border:1px solid #00ff8c;
+      color:#00ff8c;
+      padding:10px;
+      border-radius:8px;
+      text-align:center;
+      margin-top:10px;
+      font-weight:600;
+    }
+
+    @keyframes fadeIn{
+      from{opacity:0;transform:translateY(20px);}
+      to{opacity:1;transform:translateY(0);}
+    }
+
+    @media(max-width:600px){
+      .booking-container{padding:25px;}
+      h2{font-size:24px;}
+    }
+
+    footer{
+      margin-top:30px;
+      text-align:center;
+      font-size:13px;
+      opacity:0.7;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/BMW.svg" alt="BMW">
+      <span>BMW Showroom</span>
+    </div>
+    <nav>
+       <a href="Index.html">HOME</a>
+      <a href="Models.html">MODELS</a>
+      <a href="Booking.html">BOOKING</a>
+      <a href="Offers.html">OFFERS</a>
+      <a href="Contact.html" style="font-weight:600;">CONTACT</a>
+    </nav>
+  </header>
+
+  <div class="booking-container">
+    <h2>Book Your Test Drive</h2>
+    <form id="bookingForm">
+      <input type="text" id="name" placeholder="Full Name" required>
+      <input type="email" id="email" placeholder="Email Address" required>
+      <input type="tel" id="phone" placeholder="Phone Number" required>
+      <select id="model" required>
+        <option value="">Select Model</option>
+        <option>BMW M4</option>
+        <option>BMW X5</option>
+        <option>BMW i7</option>
+        <option>BMW X3</option>
+      </select>
+      <input type="date" id="date" required>
+      <input type="time" id="time" required>
+      <textarea id="message" rows="3" placeholder="Additional notes (optional)"></textarea>
+      <button type="submit">Confirm Booking</button>
+      <div class="success-message" id="successMsg">✅ Your test drive booking is confirmed!</div>
+    </form>
+  </div>
+
+  <footer>Designed and Developed by MOHAMMED RAYAN.</footer>
+
+  <script>
+    const form = document.getElementById('bookingForm');
+    const successMsg = document.getElementById('successMsg');
+
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const model = document.getElementById('model').value;
+      if(!name || !model){
+        alert("Please fill all required fields.");
+        return;
+      }
+      successMsg.style.display = 'block';
+      form.reset();
+      setTimeout(()=> successMsg.style.display = 'none', 4000);
+    });
+  </script>
+
+</body>
+</html>
